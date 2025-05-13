@@ -10,4 +10,4 @@ for item in dataset:
     ret_dict.append(item)
 
 train_df = pd.DataFrame(ret_dict)
-train_df.to_parquet("../data/openr1.parquet")
+train_df.to_parquet("/home/chen/test/LUFFY/data/openr1.parquet", index=False)

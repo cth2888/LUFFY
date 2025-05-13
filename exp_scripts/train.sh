@@ -26,7 +26,7 @@ cd $ROOT/luffy/verl/
 # Train over a single node, 8 A100-80GB GPUs.
 python3 -m verl.mix_src.main_mix_ppo \
     algorithm.adv_estimator=grpo \
-    data.train_files=$DATA_DIR/luffy_deepseek.parquet \
+    data.train_files=$DATA_DIR/train_luffy.parquet \
     data.val_files=$DATA_DIR/valid.parquet \
     data.train_batch_size=128 \
     data.val_batch_size=512 \
@@ -54,7 +54,7 @@ python3 -m verl.mix_src.main_mix_ppo \
     actor_rollout_ref.rollout.n=8 \
     actor_rollout_ref.rollout.n_val=1 \
     actor_rollout_ref.ref.fsdp_config.param_offload=True \
-    actor_rollout_ref.rollout.max_prefix_len=8192 \
+    actor_rollout_ref.rollout.max_prefix_len=16384 \
     algorithm.kl_ctrl.kl_coef=0.000 \
     actor_rollout_ref.actor.entropy_coeff=0.001 \
     trainer.critic_warmup=0 \
